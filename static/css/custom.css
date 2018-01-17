@@ -1,0 +1,51 @@
+/* Custom CSS for the Task */
+
+/* makes it so that images displayed initially are
+displayed in a horizontal line */
+.initial_display img{ float: left; }
+/*.initial_display{ width: 100%; }
+*/
+
+.jspsych-pst-stimulus {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: black;
+    color: white;
+
+}
+
+.timeout {
+    color: red;
+    font-size: 35px;
+}
+
+/* This is a class to apply to the feedback images 
+to make them smaller than the stimuli.
+HOWEVER it isn't used rn because it doesn't work */
+.object-fit-cover {
+  max-height: 200px;
+  width: 100%;
+  object-fit: contain; /*magic*/
+  object-position: 50% 50%;
+}
+
+
+.feedback-image {
+  height: auto;
+  width: 40%;
+}
+
+.stimuli-image {
+	height: auto;
+	width: 50%;
+}
+
+/* categorize stimulus */
+img.jspsych-categorize-stimulus {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  width: 50%;
+}

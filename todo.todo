@@ -1,0 +1,38 @@
+Note: To use this you need to install PlainTasks plugin for Sublime Text
+https://github.com/aziz/PlainTasks
+
+In progress:
+ ☐ integrate with psiturk
+ ☐ create files to pull matlab into csv
+ ☐ create script to read matlab files instead of having dummy code
+ ☐ Add in more documentation for variables and functions using docblockr
+
+
+
+ --- ✄ -----------------------
+ *Guide to PlainTasks*
+
+☐ ⌘ + enter or ⌘ + i: new task
+
+☐ ⌘ + d: toggle task as completed.
+
+☐ ctrl + c: toggle task as cancelled on Mac. alt + c on Windows/Linux.
+
+☐ ⌘ + shift + a will archive the done tasks, by removing them from your list and appending them to the bottom of the file under Archive project
+
+☐ ⌘ + shift + o will archive in Org-Mode style, removing the entire subtree after cursor and appending it to new file next to original one, e.g. if original is filename.TODO then new would be filename_archive.TODO
+
+☐ ⌘ + shift + u will open the url under the cursor in your default browser, other than http(s) schemes must be enclosed within <>, e.g. <skype:nickname>
+
+☐ Anything with colon at the end of the line is a project title, you can also nest projects by indenting them.
+
+☐ You can write plain text as notes or descriptions wherever you want. Use _ or * for italic and bold just like in Markdown.
+
+☐ You can add tags using @ sign
+You can place cursors on tags, click right mouse button and Filter by tags under cursors: pending tasks with selected tags will remain visible (and their notes and projects they belong to), but everything else will be hidden/folded; to unfold all press ⌘+k, ⌘+j or ⌘+k, ⌘+0
+
+☐ You can navigate tags in current document via ⌘+shift+r.
+
+☐ PlainTasks comes with a simple snippet for creating separators, if you feel that your task list is becoming too long you can split it into several sections (and fold some of them) using this snippet:
+
+-- and then tab will give you this: --- ✄ -----------------------

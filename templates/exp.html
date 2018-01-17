@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+    <head>
+    <title>Reinforcement-Learning Task</title>
+    <!-- This section is where we load all the external scripts we want to access -->
+
+    <!-- This is all the general libraries psiturk wants -->
+    <script src="/static/lib/jquery-min.js" type="text/javascript"></script>
+    <script src="/static/lib/underscore-min.js" type="text/javascript"></script>
+    <script src="/static/lib/backbone-min.js" type="text/javascript"></script>
+
+    <!-- This is all of the JS Psych base plugins -->
+    <script src="static/js/jspsych/jspsych.js"></script>
+    <script src="static/js/jspsych/plugins/jspsych-text.js"></script>
+    <script src="static/js/jspsych/plugins/jspsych-survey-text.js"></script>
+    <script src="static/js/jspsych/plugins/jspsych-categorize.js"></script>
+    <script src="static/js/jspsych/plugins/jspsych-single-stim.js"></script>
+    <script src="static/js/jspsych/plugins/jspsych-instructions.js"></script>
+
+    <!-- This is for CSS and stylesheets-->
+    <link href="static/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    <link href="static/css/custom.css" rel="stylesheet" type="text/css"></link>
+
+    <!-- This is for JS files which define variables used in the experiment -->
+    <script src="static/js/custom_plugins/define_trial_data.js"></script>
+    <script src="static/js/custom_plugins/define_trial_stimuli.js"></script>
+
+    <!-- This is for JS files which define the variables used for JsPsych plugins -->
+    <!-- This must come after the variables used in the experiment are defined -->
+    <script src="static/js/custom_plugins/create_experiment_intro.js"></script>
+    <script src="static/js/custom_plugins/create_example_train_block.js"></script>
+    <script src="static/js/custom_plugins/create_train_block.js"></script>
+    <script src="static/js/custom_plugins/create_train_phase.js"></script>
+    <script src="static/js/custom_plugins/create_test_phase.js"></script>
+    <script src="static/js/custom_plugins/create_experiment_end.js"></script>
+
+    <!-- this is required for psiturk to work -->
+    <script type="text/javascript">
+        // These fields provided by the psiTurk Server
+        var uniqueId = "{{ uniqueId }}"; // a unique string identifying the worker/task
+        var adServerLoc = "{{ adServerLoc }}"; // the location of your ad (so you can send user back at end of experiment)
+        var mode = "{{ mode }}"; // is this running live, sandbox, or in debug mode?
+    </script>
+    <!-- utils.js and psiturk.js provide the basic psiturk functionality -->
+    <script src="/static/js/utils.js" type="text/javascript"></script>
+    <script src="/static/js/psiturk.js" type="text/javascript"></script>
+
+    <!-- This is a test plugin which runs checks that everything works -->
+    <script src="static/js/custom_plugins/canary.js"></script>
+    </head>
+
+    <body>
+        <div id='jspsych-target'></div>
+    </body>
+
+    <script>
+
+/* load psiturk */
+var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
+
+var timeline = [];
+timeline.push(experiment_start_instructions);
+ex_training_phase_timeline.forEach(function(item, index, array) {
+    timeline.push(item);
+});
+training_phase_timeline.forEach(function(item, index, array) { //something is wrong with the part which reads in images
+    timeline.push(item);
+}); 
+timeline.push(test_phase_instructions);
+timeline.push(test_phase);
+timeline.push(experiment_end_msg);
+
+/* start the experiment */
+jsPsych.init({
+        display_element: $('#jspsych-target'),
+        timeline: timeline,
+        on_finish: function() {
+            psiturk.saveData({
+                success: function() { /*psiturk.computeBonus('compute_bonus');*/ psiturk.completeHIT(); }
+            });
+        },
+        on_data_update: function(data) {
+            psiturk.recordTrialData(data);
+        },
+        default_iti: 1000,
+});
+
+</script>
+
+</html>

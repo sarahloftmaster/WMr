@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<!-- This will be the text that appears in your browser tab when you open the page -->
+		<title> My experiment </title>
+		<!-- This section is where we load all the external scripts we want to access -->
+
+		<!-- This is JQuery, a general library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+		<!-- This is all of the JS Psych base plugins -->
+		<script src="static/jspsych-5.0.3/jspsych.js"></script>
+		<script src="static/jspsych-5.0.3/plugins/jspsych-text.js"></script>
+		<script src="static/jspsych-5.0.3/plugins/jspsych-survey-text.js"></script>
+		<script src="static/jspsych-5.0.3/plugins/jspsych-categorize.js"></script>
+		<script src="static/jspsych-5.0.3/plugins/jspsych-single-stim.js"></script>
+		<script src="static/jspsych-5.0.3/plugins/jspsych-instructions.js"></script>
+
+		<!-- This is any custom JS Psych plugins, if any-->
+		<!-- This is for CSS and stylesheets-->
+		<link href="static/jspsych-5.0.3/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+		<link href="static/css/custom.css" rel="stylesheet" type="text/css"></link>
+
+		<!-- This is for JS files which define variables used in the experiment -->
+		<script src="static/custom_plugins/define_trial_data.js"></script>
+		<script src="static/custom_plugins/define_trial_stimuli.js"></script>
+
+		<!-- This is for JS files which define the variables used for JsPsych plugins -->
+		<!-- This must come after the variables used in the experiment are defined -->
+		<script src="static/custom_plugins/create_experiment_intro.js"></script>
+		<script src="static/custom_plugins/create_example_train_block.js"></script>
+		<script src="static/custom_plugins/create_train_block.js"></script>
+		<script src="static/custom_plugins/create_train_phase.js"></script>
+		<script src="static/custom_plugins/create_test_phase.js"></script>
+		<script src="static/custom_plugins/create_experiment_end.js"></script>
+
+		<!-- This is a test plugin which runs checks that everything works -->
+		<script src="static/custom_plugins/canary.js"></script>
+	</head>
+	<body>
+	<!-- Nothing should go here - this will all be dynamically created-->
+	</body>
+	<script>
+	/* Below this point we will write out the task itself in Javascript */
+	/* Because this is in a script tag, only Javascript code works here */
+
+	/*The timeline determines the order the parts of your experiment are presented in 
+	In this case we want to show the experiment start instructions, a practice block,
+	the training phase, the test phase, and then a end message */
+	var timeline = [];
+	timeline.push(experiment_start_instructions);
+	ex_training_phase_timeline.forEach(function(item, index, array) {
+		timeline.push(item);
+	});
+	training_phase_timeline.forEach(function(item, index, array) { //something is wrong with the part which reads in images
+		timeline.push(item);
+	}); 
+	timeline.push(test_phase_instructions);
+	timeline.push(test_phase);
+	timeline.push(experiment_end_msg);
+
+	/* This tells the page to actually run the script! */
+
+	jsPsych.init({
+		/* This runs the timeline */
+		timeline: timeline,
+
+		/* This adds console logging messages for trials */
+		on_trial_start: function() {
+			console.log('A trial just began');
+		},
+		on_trial_finish: function() {
+			console.log('A trial just ended');
+		},
+
+		/* This tells it to display all of its data once it is finished 
+		on_finish: function() {
+			jsPsych.data.displayData('csv');*/
+		}
+	})
+	</script>
+</html> 
