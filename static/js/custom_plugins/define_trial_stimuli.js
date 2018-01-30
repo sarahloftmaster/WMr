@@ -202,7 +202,7 @@ test_img_num.forEach(function(item, index, array) {
 // 1.4.3 Create overall list of stimuli
 test_stimuli_list = [];
 test_stim_id.forEach(function(item, index, array) {
-	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index]];
+	var test_single_stim_array = [test_block[index],test_stim_id[index],test_correct_key[index]];
 	test_stimuli_list.push(test_single_stim_array);
 });
 
