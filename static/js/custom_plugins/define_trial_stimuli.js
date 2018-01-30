@@ -104,6 +104,13 @@ stimuli_list.forEach(function(item, index, array) {
 	temp_dict['gives_reward'] = item[3];
 	temp_dict['correct_text'] = item[4];
 	temp_dict['incorrect_text'] = item[5];
+	temp_dict['data'] = {
+		trial_category: "train_trial",
+		block_data: item[0],
+		stimulus_data: item[1],
+		key_answer_data: item[2],
+		gives_rwd_data: item[3]
+	};
 	stimuli_dict_list.push(temp_dict);
 });
 
@@ -174,6 +181,46 @@ var example_stimuli_dicts = [
 			incorrect_text: punish_img
 		}
 	];
+
+/*****************************************/
+/* 1.4 Make the dictionary for the test training phase
+/*****************************************/
+// This is the stimuli info for the test phase
+
+/* initialize empty variables for image path */
+var test_img_paths = [];
+
+/* create new image path variables to be called */
+test_img_num.forEach(function(item, index, array) {
+	test_img_paths.push(img_path_base + 'images' + test_img_folder[index] + '/image' + test_img_num[index] + '.jpg');
+	console.log(test_img_paths);
+});
+
+// 1.2.3 Create overall list of stimuli
+test_stimuli_list = [];
+block.forEach(function(item, index, array) {
+	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index]];
+	test_stimuli_list.push(test_single_stim_array);
+});
+
+// 1.2.4 Create dictionary of all the stimuli
+test_stimuli_dict_list = []
+test_stimuli_list.forEach(function(item, index, array) {
+	console.log(item);
+	var temp_dict = {};
+	temp_dict['block'] = item[0];
+	temp_dict['stimulus'] = item[1];
+	temp_dict['key_answer'] = item[2];
+	temp_dict['data'] = {
+		trial_category: "test_trial",
+		block_data: item[0],
+		stimulus_data: item[1],
+		key_answer_data: item[2],
+	};
+	test_stimuli_dict_list.push(temp_dict);
+});
+
+
 
 
 /*****************************************/

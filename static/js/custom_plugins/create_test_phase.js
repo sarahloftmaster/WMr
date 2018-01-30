@@ -18,6 +18,7 @@ console.log('Begin test phase creation!');
 	/* this is the test phase for the experiment */
    var test_phase = {
 		type: 'categorize', 
+		data: {trial_type: 'test'},
 		choices: train_keys, /*defined globally */
 		correct_text: '', /*defined globally */
 		incorrect_text: '', /*defined globally */
