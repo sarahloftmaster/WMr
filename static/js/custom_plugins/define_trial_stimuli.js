@@ -89,7 +89,7 @@ img_num.forEach(function(item, index, array) {
 // 1.2.3 Create overall list of stimuli
 stimuli_list = [];
 block.forEach(function(item, index, array) {
-	var single_stim_array = [block[index],img_paths[index],correct_key[index], gives_reward[index], correct[index], incorrect[index]];
+	var single_stim_array = [block[index],img_paths[index],correct_key[index], gives_reward[index], correct[index], incorrect[index], stim_id[index]];
 	stimuli_list.push(single_stim_array);
 });
 
@@ -109,7 +109,8 @@ stimuli_list.forEach(function(item, index, array) {
 		block_data: item[0],
 		stimulus_data: item[1],
 		key_answer_data: item[2],
-		gives_rwd_data: item[3]
+		gives_rwd_data: item[3],
+		stim_id_data: item[6]
 	};
 	stimuli_dict_list.push(temp_dict);
 });
@@ -202,7 +203,7 @@ test_img_num.forEach(function(item, index, array) {
 // 1.4.3 Create overall list of stimuli
 test_stimuli_list = [];
 test_stim_id.forEach(function(item, index, array) {
-	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index]]; //CHANGE THIS
+	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index], test_stim_id[index]]; //CHANGE THIS
 	test_stimuli_list.push(test_single_stim_array);
 });
 
@@ -219,6 +220,7 @@ test_stimuli_list.forEach(function(item, index, array) {
 		block_data: item[0],
 		stimulus_data: item[1],
 		key_answer_data: item[2],
+		stim_id_data: item[3]
 	};
 	test_stimuli_dict_list.push(temp_dict);
 });
