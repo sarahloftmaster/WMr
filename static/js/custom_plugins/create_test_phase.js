@@ -19,8 +19,8 @@ console.log('Begin test phase creation!');
    var test_phase = {
 		type: 'categorize', 
 		choices: train_keys, /*defined globally */
-		correct_text: '', /*defined globally */
-		incorrect_text: '', /*defined globally */
+		correct_text: "", /*defined globally */
+		incorrect_text: "", /*defined globally */
 		show_stim_with_feedback: false,
 		is_html: false,
 		prompt: "",
