@@ -198,7 +198,7 @@ test_img_num.forEach(function(item, index, array) {
 
 // 1.2.3 Create overall list of stimuli
 test_stimuli_list = [];
-block.forEach(function(item, index, array) {
+test_stim_id.forEach(function(item, index, array) {
 	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index]];
 	test_stimuli_list.push(test_single_stim_array);
 });
@@ -223,11 +223,17 @@ test_stimuli_list.forEach(function(item, index, array) {
 
 
 
+
+
 /*****************************************/
-/* 1.4 Get additional data
+/* 1.5 Get additional data
 /*****************************************/
 //Commented out for now, since we aren't using it yet
 //Need to figure out how to integrate
+
+
+
+
 
 /*
 // count_stimuli() returns a list with the number of stimuli
