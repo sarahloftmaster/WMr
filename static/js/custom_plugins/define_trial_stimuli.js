@@ -187,23 +187,26 @@ var example_stimuli_dicts = [
 /*****************************************/
 // This is the stimuli info for the test phase
 
+
+//1.4.1
 /* initialize empty variables for image path */
 var test_img_paths = [];
 
+//1.4.2
 /* create new image path variables to be called */
 test_img_num.forEach(function(item, index, array) {
 	test_img_paths.push(img_path_base + 'images' + test_img_folder[index] + '/image' + test_img_num[index] + '.jpg');
 	console.log(test_img_paths);
 });
 
-// 1.2.3 Create overall list of stimuli
+// 1.4.3 Create overall list of stimuli
 test_stimuli_list = [];
 test_stim_id.forEach(function(item, index, array) {
 	var test_single_stim_array = [test_block[index],test_img_paths[index],test_correct_key[index]];
 	test_stimuli_list.push(test_single_stim_array);
 });
 
-// 1.2.4 Create dictionary of all the stimuli
+// 1.4.4 Create dictionary of all the stimuli
 test_stimuli_dict_list = []
 test_stimuli_list.forEach(function(item, index, array) {
 	console.log(item);
