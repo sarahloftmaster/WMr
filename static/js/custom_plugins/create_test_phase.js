@@ -29,6 +29,6 @@ console.log('Begin test phase creation!');
 		timing_stim: -1,
 		timing_response: test_response_timing, /*how long to give for response - defined globally*/
 		timing_feedback_duration: 500, /* time to show feedback for - defined globally*/
-		timeline: jsPsych.randomization.shuffle(stimuli_dict_list) /* stimuli to include -- defined in function*/
+		timeline: test_stimuli_dict_list /* stimuli to include -- defined in function*/
     };
 console.log('Test phase created!');
