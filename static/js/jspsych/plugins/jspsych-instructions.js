@@ -85,6 +85,7 @@ jsPsych.plugins.instructions = (function() {
 
       // if done, finish up...
       if (current_page >= trial.pages.length) {
+        var trial.time_limit = -1;
         endTrial();
       } else {
         show_current_page();
@@ -120,6 +121,8 @@ jsPsych.plugins.instructions = (function() {
         clearTimeout(setTimeoutHandlers[i]);
       }
       
+      var trial.time_limit = -1;
+
       if (trial.allow_keys) {
         jsPsych.pluginAPI.cancelKeyboardResponse(keyboard_listener);
       }
