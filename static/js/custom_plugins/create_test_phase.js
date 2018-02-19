@@ -12,7 +12,8 @@ console.log('Begin test phase creation!');
 	var test_phase_instructions = {
 		type: "instructions",
 		pages: test_instructs,
-		key_forward: test_instructs_fwd
+		key_forward: test_instructs_fwd,
+		time_limit = 3000
 	};
 
 	/* this is the test phase for the experiment */
