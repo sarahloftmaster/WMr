@@ -39,7 +39,9 @@ jsPsych.plugins.instructions = (function() {
 
     //this should stop the trial after the set number of seconds
     if (trial.time_limit !== -1){
-      setTimeout(endTrial, trial.time_limit);
+      setTimeout(function() {
+        endTrial();
+      }, trial.time_limit);
     }
 
     function show_current_page() {
