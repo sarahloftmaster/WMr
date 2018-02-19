@@ -13,7 +13,7 @@ console.log('Begin test phase creation!');
 		type: "instructions",
 		pages: test_instructs,
 		key_forward: test_instructs_fwd,
-		time_limit: 3000
+		time_limit: 180000
 	};
 
 	/* this is the test phase for the experiment */
