@@ -116,7 +116,10 @@ jsPsych.plugins.instructions = (function() {
     }
 
     function endTrial() {
-
+      for (var i = 0; i < setTimeoutHandlers.length; i++) {
+        clearTimeout(setTimeoutHandlers[i]);
+      }
+      
       if (trial.allow_keys) {
         jsPsych.pluginAPI.cancelKeyboardResponse(keyboard_listener);
       }

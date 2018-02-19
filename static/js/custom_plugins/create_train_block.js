@@ -34,7 +34,7 @@ function makeTrainBlockInstructions(block_stimuli) {
 		type: "instructions", 
 		pages: [train_block_instructs],
 		key_forward: train_instructs_fwd,
-		time_limit: 180000
+		time_limit: 3000
 	};
     return temp_train_block_instructions;          
 }
@@ -47,7 +47,7 @@ function makeTrainBlockEndMsg() {
 		type: "instructions",
 		pages: [block_end_instructs],
 		key_forward: train_instructs_fwd,
-		time_limit: 10000
+		time_limit: 3000
 	};
     return temp_train_block_end_msg;            
 }
