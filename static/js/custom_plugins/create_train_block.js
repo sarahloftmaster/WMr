@@ -33,7 +33,8 @@ function makeTrainBlockInstructions(block_stimuli) {
 	var temp_train_block_instructions = {
 		type: "instructions", 
 		pages: [train_block_instructs],
-		key_forward: train_instructs_fwd
+		key_forward: train_instructs_fwd,
+		time_limit: 3000
 	};
     return temp_train_block_instructions;          
 }
