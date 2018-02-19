@@ -20,7 +20,7 @@ jsPsych.plugins.instructions = (function() {
     trial.allow_backward = (typeof trial.allow_backward === 'undefined') ? true : trial.allow_backward;
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
-    trial.timing_response = trial.timing_response || -1; // default is no max response time
+    trial.time_limit = trial.time_limit || -1; // default is no max response time -- this was custom added!
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -38,8 +38,8 @@ jsPsych.plugins.instructions = (function() {
     var last_page_update_time = start_time;
 
     //this should stop the trial after the set number of seconds
-    if (trial.timing_response !== -1){
-      setTimeout(endTrial, trial.timing_response);
+    if (trial.time_limit !== -1){
+      setTimeout(endTrial, trial.time_limit);
     }
 
     function show_current_page() {
