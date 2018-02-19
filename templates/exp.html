@@ -61,6 +61,15 @@ var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
 
 var timeline = [];
 
+var test_page = {
+    type: "instructions",
+    pages: ["ASDASD"],
+    timing_response: 3000
+};
+
+timeline.push(test_page);
+
+/*
 timeline.push(experiment_start_instructions);
 ex_training_phase_timeline.forEach(function(item, index, array) {
     timeline.push(item);

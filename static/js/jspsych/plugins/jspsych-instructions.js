@@ -20,11 +20,14 @@ jsPsych.plugins.instructions = (function() {
     trial.allow_backward = (typeof trial.allow_backward === 'undefined') ? true : trial.allow_backward;
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
+    trial.timing_response = trial.timing_response || -1; // default is no max response time
 
     // if any trial variables are functions
     // this evaluates the function and replaces
     // it with the output of the function
     trial = jsPsych.pluginAPI.evaluateFunctionParameters(trial);
+
+    var setTimeoutHandlers = [];
 
     var current_page = 0;
 
@@ -33,6 +36,11 @@ jsPsych.plugins.instructions = (function() {
     var start_time = (new Date()).getTime();
 
     var last_page_update_time = start_time;
+
+    //this should stop the trial after the set number of seconds
+    if (trial.timing_response !== -1){
+      setTimeout(endTrial, trial.timing_response);
+    }
 
     function show_current_page() {
       display_element.html(trial.pages[current_page]);
