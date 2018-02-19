@@ -120,9 +120,8 @@ jsPsych.plugins.instructions = (function() {
       for (var i = 0; i < setTimeoutHandlers.length; i++) {
         clearTimeout(setTimeoutHandlers[i]);
       }
-      
-      var trial.time_limit = -1;
 
+      
       if (trial.allow_keys) {
         jsPsych.pluginAPI.cancelKeyboardResponse(keyboard_listener);
       }
