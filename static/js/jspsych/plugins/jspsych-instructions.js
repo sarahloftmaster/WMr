@@ -20,7 +20,6 @@ jsPsych.plugins.instructions = (function() {
     trial.allow_backward = (typeof trial.allow_backward === 'undefined') ? true : trial.allow_backward;
     trial.allow_keys = (typeof trial.allow_keys === 'undefined') ? true : trial.allow_keys;
     trial.show_clickable_nav = (typeof trial.show_clickable_nav === 'undefined') ? false : trial.show_clickable_nav;
-    trial.time_limit = trial.time_limit || -1; // default is no max response time -- this was custom added!
 
     // if any trial variables are functions
     // this evaluates the function and replaces
@@ -36,13 +35,6 @@ jsPsych.plugins.instructions = (function() {
     var start_time = (new Date()).getTime();
 
     var last_page_update_time = start_time;
-
-    //this should stop the trial after the set number of seconds
-    if (trial.time_limit !== -1){
-      setTimeout(function() {
-        endTrial();
-      }, trial.time_limit);
-    }
 
     function show_current_page() {
       display_element.html(trial.pages[current_page]);
@@ -85,7 +77,6 @@ jsPsych.plugins.instructions = (function() {
 
       // if done, finish up...
       if (current_page >= trial.pages.length) {
-        var trial.time_limit = -1;
         endTrial();
       } else {
         show_current_page();
@@ -117,9 +108,6 @@ jsPsych.plugins.instructions = (function() {
     }
 
     function endTrial() {
-      for (var i = 0; i < setTimeoutHandlers.length; i++) {
-        clearTimeout(setTimeoutHandlers[i]);
-      };
 
       if (trial.allow_keys) {
         jsPsych.pluginAPI.cancelKeyboardResponse(keyboard_listener);
