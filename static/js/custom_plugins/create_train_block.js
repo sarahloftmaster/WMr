@@ -21,13 +21,8 @@ console.log('Begin train block creation!');
 /*1.1  This is a training phase block instructions at beginning  */
 /*****************************************/
 
-stimulus: 'static/img/stimuli/images99/image1.jpg',
-key_answer: 74,
-correct_text: reward_img,
-incorrect_text: punish_img
 
 function makeTrainBlockInstructions(block_stimuli) {
-
 	var img_links = [];
 	block_stimuli.forEach(function(item, index, array) {
 		img_links.push(item['stimulus']);
