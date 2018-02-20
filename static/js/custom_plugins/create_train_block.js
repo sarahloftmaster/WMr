@@ -38,6 +38,7 @@ function makeTrainBlockInstructions(block_stimuli) {
 	var temp_train_block_instructions = {
 		type: "categorize", 
 		stimulus: train_block_instructs,
+		is_html: true,
 		key_answer: 32,
 		timing_response: 3000,
 		show_stim_with_feedback: false,
@@ -48,8 +49,6 @@ function makeTrainBlockInstructions(block_stimuli) {
 		incorrect_text: '<p> Block about to begin! </p>',
 		correct_text: '<p> Block about to begin! </p>',
 		timing_stim: -1
-
-
 	};
     return temp_train_block_instructions;          
 }
@@ -61,6 +60,7 @@ function makeTrainBlockEndMsg() {
 	var temp_train_block_end_msg = {
 		type: "categorize", 
 		stimulus: block_end_instructs,
+		is_html: true,
 		key_answer: 32,
 		timing_response: 3000,
 		show_stim_with_feedback: false,
