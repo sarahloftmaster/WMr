@@ -35,7 +35,7 @@ function makeTrainBlockInstructions(block_stimuli) {
 		stimulus: train_block_instructs,
 		is_html: true,
 		key_answer: 32,
-		timing_response: 10000,
+		timing_response: 180000,
 		show_stim_with_feedback: false,
 		show_feedback_on_timeout: false,
 		timeout_message: '<p> Block about to begin! </p>',
@@ -57,14 +57,14 @@ function makeTrainBlockEndMsg() {
 		stimulus: block_end_instructs,
 		is_html: true,
 		key_answer: 32,
-		timing_response: 3000,
+		timing_response: 90000,
 		show_stim_with_feedback: false,
 		show_feedback_on_timeout: false,
-		timeout_message: '<p> Block about to begin! </p>',
+		timeout_message: '<p> Proceeding to next block </p>',
 		timing_feedback_duration: 1500,
 		prompt: '',
-		incorrect_text: '<p> Block about to begin! </p>',
-		correct_text: '<p> Block about to begin! </p>',
+		incorrect_text: '',
+		correct_text: '',
 		timing_stim: -1
 	};
     return temp_train_block_end_msg;            
