@@ -21,6 +21,11 @@ console.log('Begin train block creation!');
 /*1.1  This is a training phase block instructions at beginning  */
 /*****************************************/
 
+stimulus: 'static/img/stimuli/images99/image1.jpg',
+key_answer: 74,
+correct_text: reward_img,
+incorrect_text: punish_img
+
 function makeTrainBlockInstructions(block_stimuli) {
 
 	var img_links = [];
@@ -31,10 +36,20 @@ function makeTrainBlockInstructions(block_stimuli) {
 	var stimulus_display_html = createStimulusDisplayHTML(img_links);
 	var train_block_instructs = '<p>New Block</p><p>Take some time to identify the images for this block.</p><p>[Press SPACEBAR to continue]</p>' + stimulus_display_html; // this hardcoding needs to be fixed. there is some issue with this being an array
 	var temp_train_block_instructions = {
-		type: "instructions", 
-		pages: [train_block_instructs],
-		key_forward: train_instructs_fwd,
-		time_limit: 3000
+		type: "categorize", 
+		stimulus: train_block_instructs,
+		key_answer: 32,
+		timing_response: 3000,
+		show_stim_with_feedback: false,
+		show_feedback_on_timeout: false,
+		timeout_message: '<p> Block about to begin! </p>',
+		timing_feedback_duration: 1500,
+		prompt: '',
+		incorrect_text: '<p> Block about to begin! </p>',
+		correct_text: '<p> Block about to begin! </p>',
+		timing_stim: -1
+
+
 	};
     return temp_train_block_instructions;          
 }
@@ -44,10 +59,18 @@ function makeTrainBlockInstructions(block_stimuli) {
 function makeTrainBlockEndMsg() {
 	var block_end_instructs = '<p>Block complete!</p><p>[Press SPACEBAR to continue]</p>'; // this hardcoding needs to go away
 	var temp_train_block_end_msg = {
-		type: "instructions",
-		pages: [block_end_instructs],
-		key_forward: train_instructs_fwd,
-		time_limit: 3000
+		type: "categorize", 
+		stimulus: block_end_instructs,
+		key_answer: 32,
+		timing_response: 3000,
+		show_stim_with_feedback: false,
+		show_feedback_on_timeout: false,
+		timeout_message: '<p> Block about to begin! </p>',
+		timing_feedback_duration: 1500,
+		prompt: '',
+		incorrect_text: '<p> Block about to begin! </p>',
+		correct_text: '<p> Block about to begin! </p>',
+		timing_stim: -1
 	};
     return temp_train_block_end_msg;            
 }
