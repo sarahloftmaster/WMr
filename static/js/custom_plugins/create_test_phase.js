@@ -8,7 +8,7 @@
 
 console.log('Begin test phase creation!');
 
- var test_instructs_oneline = '<p>Great! You are almost done with this experiment.</p><p>It is time to test what you have learned.</p><p>&nbsp</p><p>You will see one image on the screen at a time. Enter the key that gave you the greatest number of rewards for each image previously. If you are not sure which key to press, just go with your gut instinct!</p><p>During this set of trials you will NOT receive feedback about your responses. However, your performance will still count towards your bonus, so be as accurate as possible.</p><p>As before, respond to each image by pressing one of the three buttons on the keyboard:<p> j, k or l</p> with your dominant hand.</p><p>&nbsp</p><p>[Press SPACEBAR to continue]</p>]'
+ var test_instructs_oneline = '<p>Great! You are almost done with this experiment.</p><p>It is time to test what you have learned.</p><p>&nbsp</p><p>You will see one image on the screen at a time. Enter the key that gave you the greatest number of rewards for each image previously. If you are not sure which key to press, just go with your gut instinct!</p><p>During this set of trials you will NOT receive feedback about your responses. However, your performance will still count towards your bonus, so be as accurate as possible.</p><p>As before, respond to each image by pressing one of the three buttons on the keyboard:<p> j, k or l</p> with your dominant hand.</p><p>&nbsp</p><p>[Press SPACEBAR to continue]</p>'
 
 	/* This is the instructions block for the test phase*/
 	var test_phase_instructions = {
