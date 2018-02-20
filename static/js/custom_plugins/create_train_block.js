@@ -35,7 +35,7 @@ function makeTrainBlockInstructions(block_stimuli) {
 		stimulus: train_block_instructs,
 		is_html: true,
 		key_answer: 32,
-		timing_response: 3000,
+		timing_response: 10000,
 		show_stim_with_feedback: false,
 		show_feedback_on_timeout: false,
 		timeout_message: '<p> Block about to begin! </p>',
