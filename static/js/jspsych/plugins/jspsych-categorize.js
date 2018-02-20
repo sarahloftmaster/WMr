@@ -120,7 +120,7 @@ jsPsych.plugins.categorize = (function() {
         display_element.append(trial.timeout_message);
       } else {
         // show image during feedback if flag is set
-        if (trial.show_stim_with_feedback) {
+        if (trial.show_stim_with_feedback) { //this argument isn't required
           if (!trial.is_html) {
             // add image to display
             display_element.append($('<img>', {
@@ -130,7 +130,7 @@ jsPsych.plugins.categorize = (function() {
             }));
           } else {
             display_element.append($('<div>', {
-              "id": 'jspsych-categorize-stimulus',
+              "id": 'jspsych-categorize-stimulus', //this css can be changed to make it show text
               "class": 'jspsych-categorize-stimulus',
               "html": trial.stimulus
             }));
