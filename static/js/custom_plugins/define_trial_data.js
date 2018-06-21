@@ -120,22 +120,25 @@ function addContinuePrompt(instructions_base) {
 	return new_instructs;
 }
 
+// add string which specifies true number of blocks to instructions
+//var specific_string =  '<p>After the practice section, there will be ' + String(n_blocks) + ' short blocks.</p><p>You can rest between each block.</p><p>At the beginning of each block, you will be shown the set of images for that block.</p><p>Take some time to identify them correctly.</p>';
 
 /*  Training phase instructions */
 /* Define individual pages */
-var train_instructs_base = ['<p><strong>Working Memory Reinforcement Learning Task</strong></p><p>&nbsp</p><p>In this experiment, you will see an image on the screen. <br>You need to respond to each image by pressing one of the three buttons on the keyboard: <p> j, k or l</p> with your dominant hand.</p>',
+var train_instructs_base = ['<p><strong>Working Memory Reinforcement Learning Task</strong></p><p>&nbsp</p><p>In this experiment, you will see an image on the screen. <br>You need to respond to each image by pressing one of the three buttons on the keyboard:<p> j, k or l</p> with your dominant hand.</p>',
 '<p>Your goal is to figure out the correct button for each image. <br>You will have a few seconds to respond.</p>',
- '<p>Please respond to every image as quickly and accurately as possible.<br> If you do not respond, the trial will be counted as a loss.</p><p>If you select the correct button, most of the time you will gain points. <br> You can gain 1 point per each trial.</p><p>Sometimes you will NOT receive points even if you <br> select the correct button.</p>',
- '<p>You will gain a larger bonus the more points you win, so try to win as many as possible!',
- '<p>After the practice section, there will be a number of short blocks.</p><p>You can rest between each block.</p><p>At the beginning of each block, you will be shown the set of images for that block.</p><p>Take some time to identify them correctly.</p>',
- '<p>Note the following important rules:</p><p>1. There is ONLY ONE correct response for each image.</p><p>2. One response button MAY be correct for multiple images, or not be correct for any image.</p><p>3. Within each block, the correct response for each image will not change.</p><p>4. When you enter the correct response, most of the time you will be given a reward, but occasionally you will not receive a reward even if you pressed the correct key.</p><p> On the following page you will be given time to familiarize yourself with the images before beginning the block.</p>',
+ '<p>Please respond to every image as quickly and accurately as possible.<br> If you do not respond, the trial will be counted as a loss.</p><p>If you select the correct button, you will gain points. <br> You can gain 1 point per trial.</p>',
+ '<p>You will gain a larger bonus the more points you win, so try to win as many as possible!</p><p>After the practice section, there will be 7 short blocks.</p><p>You can take a short break between each block.</p>',
+ '<p>At the beginning of each block, you will be shown the set of images for that block.</p><p>Take some time to identify or name them.</p>',
+ '<p>Halfway through each block, the correct keys for each image will change.</p><p>You will know that the correct response has changed <br> because the responses you learned will no longer give you points.</p><p>Try to learn the new correct buttons.</p><p>There may also be new images to respond to.</p>',
+ '<p>Note the following important rules:</p><p>1. There is ONLY ONE correct response at a time for each image.</p><p>2. One response button MAY be correct for multiple images, or not be correct for any image.</p><p>3. Within each block, the correct response for each image will change only once, halfway through.</p><p> On the first page of the block you will be given time to familiarize yourself with the images before beginning.</p>',
  '<p>Please note that it is important you progress through the task quickly, so you will be given a maximum of 3 minutes to view the instructions for each block</p>'];
 /* Combine into an array of pages */
 var train_instructs = addContinuePrompt(train_instructs_base);
 
 /*  Example training phase starting instructions */
 // Define individual pages
-var ex_train_instructs_base = ['<p>Practice Block</p><p>Before you begin, you will be given a practice block <br> to get familiar with how the experiment works</p><p>Your answers here will not count. </p><p>Take some time to identify the images for this block.</p>'];
+var ex_train_instructs_base = ['<p>Practice Block</p><p>Before you begin, you will be given a practice block <br> to get familiar with how the experiment works</p><p>Your answers here will not count towards your bonus. </p><p>Take some time to identify the images for this block.</p>'];
 /* Combine into an array of pages */
 var ex_train_instructs = addContinuePrompt(ex_train_instructs_base);
 
@@ -174,7 +177,7 @@ var block_end_instructs = addContinuePrompt(block_end_instructs_base);
 /*****************************************/
 console.log('Create end message variables');
 
-var experiment_end_msg = ['<p>Done!</p><p>Thank you for participating! Press SPACEBAR to complete the experiment, your payment will arrive soon.</p>'];
+var experiment_end_msg = ['<p>Done!</p><p>Thank you for participating! Press SPACEBAR to move on to a final questionnaire. Your payment will arrive soon.</p>'];
 
 
 

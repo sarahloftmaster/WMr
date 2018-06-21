@@ -19,6 +19,12 @@ console.log('Begin example train block creation!');
 /*1.1  This is an example training phase block instructions at beginning  */
 /*****************************************/
 
+Array.prototype.unique = function() {
+  return this.filter(function (value, index, self) { 
+    return self.indexOf(value) === index;
+  });
+}
+
 function makeExampleTrainBlockInstructions(block_stimuli) {
 
 	var img_links = [];
@@ -26,7 +32,7 @@ function makeExampleTrainBlockInstructions(block_stimuli) {
 		img_links.push(item['stimulus'])
 	});
 	console.log(img_links)
-	var stimulus_display_html = createStimulusDisplayHTML(img_links.slice(0,2)); // right now because a dict is being fed, it actually shows too many images, so I'm slicing it. This should be fixed at some point
+	var stimulus_display_html = createStimulusDisplayHTML(img_links.unique());//(img_links.slice(0,2)); was showing 2 of the same image // right now because a dict is being fed, it actually shows too many images, so I'm slicing it. This should be fixed at some point
 	var ex_train_block_instructs = '<p><strong>Practice Block</strong></p><p>&nbsp</p><p>Before you begin, you will be given a practice block <br> to get familiar with how the experiment works. <br> Your answers here will not count.<br>  Take some time to identify the images for this block.</p><p>As a reminder, for each image press one of the following keys on your keyboard:</p><p>j, k, l </p> <p>[Press SPACEBAR to continue]</p>' + stimulus_display_html; 
 	var ex_temp_train_block_instructions = { //this stuff is hardcoded too ew, fix
 		type: "instructions", 

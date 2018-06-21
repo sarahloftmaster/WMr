@@ -1,11 +1,12 @@
 [HIT Configuration]
-title = Probabilistic Selection Task
+title = Learning and Working Memory Task
 description = Learn the rewards from feedback
 amt_keywords = Psychology, experiment 
 lifetime = 24
 us_only = true
 approve_requirement = 95
-contact_email_on_error = wryan@berkeley.edu
+allow_repeats = false
+contact_email_on_error = sarah.master@berkeley.edu
 ad_group = jspsych simple experiment example
 psiturk_keywords = reinforcement learning
 organization_name = UC Berkeley
@@ -13,7 +14,7 @@ browser_exclude_rule = MSIE, mobile, tablet
 
 [Database Parameters]
 database_url = sqlite:///participants.db
-table_name = tst
+table_name = Sarah
 
 [Server Parameters]
 host = 0.0.0.0
@@ -41,6 +42,6 @@ psiturk_access_key_id = kNRLNrQb9fgjNWHCsYU9V3
 psiturk_secret_access_id = 9C73fgBcgoKJAEhWE5BwhJ
 
 [AWS Access]
-aws_access_key_id = AKIAJXCFGZ67GSLOTKXQ
-aws_secret_access_key = 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
+aws_access_key_id = AKIAJTPG23DXZFXO7LQQ
+aws_secret_access_key = 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
 aws_region = us-east-1

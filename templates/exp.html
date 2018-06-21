@@ -19,6 +19,7 @@
     <script src="static/js/jspsych/plugins/jspsych-instructions.js"></script>
 
     <!-- This is for CSS and stylesheets-->
+    <!--link href="static/css/jspsych_reversal.css" rel="stylesheet" type="text/css"></link>-->
     <link href="static/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <link href="static/css/custom.css" rel="stylesheet" type="text/css"></link>
 
@@ -34,6 +35,8 @@
     <script src="static/js/custom_plugins/create_train_phase.js"></script>
     <script src="static/js/custom_plugins/create_test_phase.js"></script>
     <script src="static/js/custom_plugins/create_experiment_end.js"></script>
+    <!-- new plugin to add questionnaire at end of experiment -->
+    <script src="/static/js/custom_plugins/questionnaire.js"> type = 'text/javascript' </script>
 
     <!-- this is required for psiturk to work -->
     <script type="text/javascript">
@@ -48,6 +51,15 @@
 
     <!-- This is a test plugin which runs checks that everything works -->
     <script src="static/js/custom_plugins/canary.js"></script>
+    
+    <!--<style>
+    #box {
+        background: :#D3D3D3 !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    </style>-->
+    
     </head>
 
     <body>
@@ -55,6 +67,11 @@
     </body>
 
     <script>
+
+// Default background set-up
+
+//document.styleSheets[1].disabled = true
+//document.styleSheets[2].disabled = false
 
 /* load psiturk */
 var psiturk = new PsiTurk(uniqueId, adServerLoc, mode);
@@ -66,29 +83,67 @@ ex_training_phase_timeline.forEach(function(item, index, array) {
     timeline.push(item);
 });
 
-training_phase_timeline.forEach(function(item, index, array) { //something is wrong with the part which reads in images
+training_phase_timeline.forEach(function(item, index, array) { 
+/* var k = 0; move this back outside forEach if comment out   
+k = k + 1;
+    if (k % 5 == 0){
+        console.log('If statement entered')
+        document.styleSheets[1].disabled = false
+        document.styleSheets[2].disabled = true
+    }
+    if (k % 5 != 0){
+        console.log('Second if statement entered')
+        document.styleSheets[1].disabled = true
+        document.styleSheets[2].disabled = false
+    }*/
     timeline.push(item);
-}); 
+});
 
-timeline.push(test_phase_instructions);
-timeline.push(test_phase);
+/*timeline.push(test_phase_instructions);
+timeline.push(test_phase);*/
+//timeline.push(PTQ);
+
 timeline.push(experiment_end_msg);
+var pages = ['questionnaire.html'];
+psiturk.preloadPages(pages);
 
-/* start the experiment */
+// Tracking number correct
+var current_correct_count = 0; //used to track the current number of correct trials
+var total_trials_count = 0; //tracks total number of trials
+var current_block = 0; //current block
+var kill_check = 0; //used to trigger the end of the experiment
+
+/* run the experiment */
 jsPsych.init({
         display_element: $('#jspsych-target'),
         timeline: timeline,
         preload_images: img_paths,
         on_finish: function() {
             psiturk.saveData({
-                success: function() { /*psiturk.computeBonus('compute_bonus');*/ psiturk.completeHIT(); }
+                success: Questionnaire()
+            })
+        },
+        on_data_update: function(data) { //written in to be able to interact with data in real time (so we can cut off people who are bad)
+            psiturk.recordTrialData(data);
+        },
+        default_iti: 1000
+});
+
+/* start the experiment */
+/* jsPsych.init({
+        display_element: $('#jspsych-target'),
+        timeline: timeline,
+        preload_images: img_paths,
+        on_finish: function() {
+            psiturk.saveData({
+                success: function() { /* comment this back out if you bring this back psiturk.computeBonus('compute_bonus'); /* psiturk.completeHIT(); }
             });
         },
         on_data_update: function(data) {
             psiturk.recordTrialData(data);
         },
         default_iti: 1000,
-});
+}); */
 
 </script>
 

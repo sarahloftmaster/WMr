@@ -1,0 +1,86 @@
+
+<div id="container-questionnaire">
+    <h1>Congratulations, You've Finished!</h1>
+    <hr>
+    
+    <p> Please fill out any portion of the short, ANONYMOUS survey below with which you are comfortable and click "Submit Response" to complete the HIT. Any information you choose to provide will be collected for our research purposes only.
+    </p>
+
+    <div class="instructions well">
+        <form id="postquiz" action="debrief" method="post">
+            <!-- beginning of a question -->
+            <div class="row question">
+                <div class="col-md-8">
+
+                </div>
+                <br/>
+
+                <table>
+                <tr>
+                <td>
+                <p>What gender do you consider yourself?</p>
+                <input type="radio" name="gender" value="male"   > Male             <br>
+                <input type="radio" name="gender" value="female" > Female           <br>
+                <input type="radio" name="gender" value="other"  > Other            <br>
+                <input type="radio" name="gender" value="decline"> Decline to State <br>
+                </td>
+
+                <td>
+                <p>What age are you?</p>
+                <input type="radio" name="age" value="young"  > 18-25            <br>
+                <input type="radio" name="age" value="middle" > 26-30            <br>
+                <input type="radio" name="age" value="old"    > 31-35            <br>
+                <input type="radio" name="age" value="senior" > 36-40            <br>
+                <input type="radio" name="age" value="unknown"> 41+              <br>
+                <input type="radio" name="age" value="decline"> Decline to State <br>
+                </td>
+                </tr>
+
+                <tr>
+                <td>
+                <p>What formal education do you possess?</p>
+                <input type="radio" name="edu" value="none"   > None                         <br>
+                <input type="radio" name="edu" value="elem"   > Elementary School (K - 5)    <br>
+                <input type="radio" name="edu" value="middle" > Middle School     (6 - 8)    <br>
+                <input type="radio" name="edu" value="high"   > High School       (9 - 12)   <br>
+                <input type="radio" name="edu" value="uni"    > University                   <br>
+                <input type="radio" name="edu" value="grad"   > Graduate/Professional School <br>
+                <input type="radio" name="edu" value="decline"> Decline to State             <br>
+                </td>
+
+                <td>
+                <p>Do you consider yourself any of the following?</p>
+                <input type="checkbox" name="race" value="african"> African American                    <br>
+                <input type="checkbox" name="race" value="asian"  > Asian                               <br>
+                <input type="checkbox" name="race" value="white"  > Caucasian                           <br>
+                <input type="checkbox" name="race" value="native" > Native American                     <br>
+                <input type="checkbox" name="race" value="pacific"> Native Hawaiian or Pacific Islander <br>
+                <input type="checkbox" name="race" value="decline"> Decline to State                    <br>
+                </td>
+                </tr>
+                </table>
+
+                <br/>
+
+                <!-- <input name="trackerField" type="text" size="10" id="responseDsc" style="display:none"/> -->
+            </div>
+            <!-- end of a question -->
+        </form>
+    </div>
+
+    <hr>
+
+    <div class="instructionsnav">
+        <div class="row">
+            <div class="col-xs-2">
+            </div>
+            <div class="col-xs-7">
+            </div>
+            <div class="col-xs-3">
+                <button type="button" id="submit" value="submit" class="btn btn-primary btn-lg continue">
+                    Submit Response <span class="glyphicon glyphicon-arrow-right"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
