@@ -38,10 +38,10 @@ use_psiturk_ad_server = true
 ad_location = false
 
 [psiTurk Access]
-psiturk_access_key_id = kNRLNrQb9fgjNWHCsYU9V3
-psiturk_secret_access_id = 9C73fgBcgoKJAEhWE5BwhJ
+psiturk_access_key_id =
+psiturk_secret_access_id =
 
 [AWS Access]
-aws_access_key_id = AKIAJTPG23DXZFXO7LQQ
-aws_secret_access_key = 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
+aws_access_key_id =
+aws_secret_access_key =
 aws_region = us-east-1
